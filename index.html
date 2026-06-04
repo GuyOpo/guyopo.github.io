@@ -68,8 +68,9 @@ body {
 }
 .nav-hint {
   position: fixed; top: 1.9rem; right: 3vw;
-  font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+  font-size: 0.72rem; letter-spacing: 0.03em;
   color: var(--dim); z-index: 200; pointer-events: none;
+  transition: opacity 0.45s;
 }
 
 /* ── LABELS / HEADINGS ── */
@@ -142,7 +143,7 @@ h2 {
   cursor: pointer;
   transition: border-color 0.22s, background 0.22s, transform 0.22s;
   display: flex; flex-direction: column;
-  min-height: 108px;
+  min-height: 162px;
 }
 .card:hover {
   border-color: var(--borderH);
@@ -155,8 +156,8 @@ h2 {
 }
 .card-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1rem; font-weight: 600; color: var(--white);
-  line-height: 1.25; letter-spacing: -0.01em; padding-right: 0.5rem;
+  font-size: clamp(1.5rem, 1.9vw, 1.85rem); font-weight: 600; color: var(--white);
+  line-height: 1.15; letter-spacing: -0.02em;
 }
 .card-expand {
   margin-top: auto;
@@ -167,6 +168,20 @@ h2 {
 .card-expand::after { content: '→'; transition: transform 0.22s; }
 .card:hover .card-expand { color: var(--blue2); }
 .card:hover .card-expand::after { transform: translateX(4px); }
+
+/* ── JOURNEY CARDS (logos) ── */
+.jcard { min-height: 170px; }
+.jlogo-wrap {
+  background: #fff; border-radius: 7px;
+  height: 62px; width: 100%;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0.6rem 1rem; margin-bottom: 1rem;
+}
+.jlogo-wrap img { max-height: 38px; max-width: 78%; object-fit: contain; }
+.jyears {
+  font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.2rem;
+}
 
 /* ── KPI CARDS (operating model) ── */
 .kpi-grid {
@@ -278,6 +293,7 @@ h2 {
 .slide-content.visible { opacity: 1; transform: none; }
 
 @media (max-width: 760px) {
+  .nav-hint { display: none; }
   .hero-orb { display: none; }
   .kpi-grid, .phase-grid { grid-template-columns: 1fr; }
   .card-grid, .card-grid.c2, .card-grid.c3 { grid-template-columns: 1fr; max-width: none; }
@@ -290,7 +306,7 @@ h2 {
 <body>
 
 <div class="site-mark">GO</div>
-<div class="nav-hint">← → navigate</div>
+<div class="nav-hint" id="navHint">Use ← → arrow keys, scroll, or swipe to navigate</div>
 
 <div class="slider-wrap"><div class="slider" id="slider">
 
@@ -413,11 +429,11 @@ h2 {
     <p class="sec-label">07 / The Journey</p>
     <h2>Every role was a build.</h2>
     <p class="tagline">10+ years of SDR and BDR leadership. Never missed an annual pipeline target.</p>
-    <div class="journey-list">
-      <div class="j-stop"><div><p class="j-year">2004 – 2014</p></div><div><p class="j-co">Quest Software</p><p class="j-body">Where I learned what enterprise sales actually is. BDR to Territory Account Executive, exceeded quota three consecutive years, named Sales Rep of the Year ranking first in quota attainment across North America. President's Club every eligible year.</p></div></div>
-      <div class="j-stop"><div><p class="j-year">2014 – 2016</p></div><div><p class="j-co">Alteryx</p><p class="j-body">First BDR leader the company had. Built the team from three to sixteen. 236% of quota in year one. Promoted ten BDRs into sales roles.</p></div></div>
-      <div class="j-stop"><div><p class="j-year">2018 – 2022</p></div><div><p class="j-co">BigPanda</p><p class="j-body">Scaled the global BDR organization across the US and EMEA. One rep to twelve plus a manager. ARR grew from roughly ten million to over fifty million. Multiple BDRs promoted into AE, Marketing, RevOps, and management.</p></div></div>
-      <div class="j-stop"><div><p class="j-year">2023 – 2025</p></div><div><p class="j-co">Chronosphere</p><p class="j-body">Led a global team of twenty US-based BDRs, one EMEA rep, and two managers. Owned the full BDR operating system: segmentation, capacity planning, territories, workflows, and forecasting. Pipeline contribution scaled from fifty million to one hundred sixty million ARR. Acquired by Palo Alto Networks.</p></div></div>
+    <div class="card-grid c2">
+      <div class="card jcard" data-m="m-quest"><div class="jlogo-wrap"><img src="images/quest.png" alt="Quest Software"></div><span class="jyears">2004 – 2014</span><span class="card-expand">Expand</span></div>
+      <div class="card jcard" data-m="m-alteryx"><div class="jlogo-wrap"><img src="images/alteryx.png" alt="Alteryx"></div><span class="jyears">2014 – 2016</span><span class="card-expand">Expand</span></div>
+      <div class="card jcard" data-m="m-bigpanda"><div class="jlogo-wrap"><img src="images/bigpanda.png" alt="BigPanda"></div><span class="jyears">2018 – 2022</span><span class="card-expand">Expand</span></div>
+      <div class="card jcard" data-m="m-chrono"><div class="jlogo-wrap"><img src="images/chronosphere.jpg" alt="Chronosphere"></div><span class="jyears">2023 – 2025</span><span class="card-expand">Expand</span></div>
     </div>
   </div>
 </div>
@@ -493,6 +509,14 @@ h2 {
 
 <template id="m-callcoach"><b>Coaching</b>|Call Coaching|<p>Call recording and analytics (Gong, Chorus) show you what happened. Auto dialers let you coach while it is happening. Both matter and serve different purposes.</p><p>Recorded calls are where I do pattern work. I listen for how reps handle the moment after an objection and whether their delivery feels natural or rehearsed.</p><p>Being on the phones with the team during call blocks is where I see reps move fastest. The best cold call open is the one a rep can deliver with genuine confidence. My job is helping each rep find theirs.</p></template>
 
+<template id="m-quest"><b>The Journey · 2004–2014</b>|Quest Software|<p>Where I learned what enterprise sales actually is. Progressed from BDR to Territory Account Executive, exceeded quota three consecutive years, and was named Sales Rep of the Year ranking first in quota attainment across North America. President's Club every eligible year.</p></template>
+
+<template id="m-alteryx"><b>The Journey · 2014–2016</b>|Alteryx|<p>First BDR leader the company had. Built the team from three to sixteen. 236% of quota in year one. Promoted ten BDRs into sales roles.</p></template>
+
+<template id="m-bigpanda"><b>The Journey · 2018–2022</b>|BigPanda|<p>Scaled the global BDR organization across the US and EMEA. Grew from one rep to twelve plus a manager. ARR grew from roughly ten million to over fifty million. Multiple BDRs promoted into AE, Marketing, RevOps, and management.</p></template>
+
+<template id="m-chrono"><b>The Journey · 2023–2025</b>|Chronosphere|<p>Led a global team of twenty US-based BDRs, one EMEA rep, and two managers. Owned the full BDR operating system: segmentation, capacity planning, territories, workflows, and forecasting. Pipeline contribution scaled from fifty million to one hundred sixty million ARR. Acquired by Palo Alto Networks.</p></template>
+
 <template id="m-kpi-ctm"><b>The Operating Model · KPI</b>|Connect to Meeting|<p>The clearest gap in most outbound funnels and the most coachable metric on the board. When this number moves, everything downstream moves.</p><p>It tells me whether reps are turning conversations into booked meetings, which is usually where the biggest and fastest improvement lives.</p></template>
 
 <template id="m-kpi-noshow"><b>The Operating Model · KPI</b>|No-Show Rate|<p>A high no-show rate is a qualification problem dressed up as a scheduling problem. It tells me whether we are booking meetings people genuinely want to attend, not meetings people agreed to just to get off the phone.</p><p>When it climbs, the fix is almost always in messaging and qualification, not in more reminders.</p></template>
@@ -536,6 +560,7 @@ function goTo(n) {
   document.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active', i===cur));
   document.getElementById('prevBtn').disabled = cur===0;
   document.getElementById('nextBtn').disabled = cur===total-1;
+  document.getElementById('navHint').style.opacity = cur===0 ? '' : '0';
   setTimeout(()=>{
     const c = slides[cur].querySelector('.slide-content');
     if(c){ c.classList.remove('visible'); void c.offsetWidth; c.classList.add('visible'); }
@@ -573,6 +598,23 @@ document.addEventListener('touchend', e=>{
   if(mBack.classList.contains('open')) return;
   const dx=tx-e.changedTouches[0].clientX;
   if(Math.abs(dx)>50) goTo(cur+(dx>0?1:-1));
+}, {passive:true});
+
+// Scroll / wheel navigation
+let wheelLock=false;
+window.addEventListener('wheel', e=>{
+  if(mBack.classList.contains('open')) return;
+  const sl=slides[cur];
+  // if this slide's content overflows, let it scroll until the edge
+  if(sl.scrollHeight > sl.clientHeight + 4){
+    const atTop = sl.scrollTop <= 0;
+    const atBottom = sl.scrollTop + sl.clientHeight >= sl.scrollHeight - 4;
+    if(!((e.deltaY>0 && atBottom) || (e.deltaY<0 && atTop))) return;
+  }
+  if(wheelLock || Math.abs(e.deltaY) < 18) return;
+  wheelLock=true;
+  goTo(cur + (e.deltaY>0 ? 1 : -1));
+  setTimeout(()=>{ wheelLock=false; }, 850);
 }, {passive:true});
 </script>
 </body>
