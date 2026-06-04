@@ -142,7 +142,7 @@ h2 {
   cursor: pointer;
   transition: border-color 0.22s, background 0.22s, transform 0.22s;
   display: flex; flex-direction: column;
-  min-height: 132px;
+  min-height: 108px;
 }
 .card:hover {
   border-color: var(--borderH);
@@ -158,15 +158,15 @@ h2 {
   font-size: 1rem; font-weight: 600; color: var(--white);
   line-height: 1.25; letter-spacing: -0.01em; padding-right: 0.5rem;
 }
-.card-plus {
-  color: var(--blue); font-size: 1.1rem; line-height: 1;
-  flex-shrink: 0; transition: transform 0.22s; font-weight: 400;
-}
-.card:hover .card-plus { transform: rotate(90deg); }
-.card-teaser {
-  font-size: 0.83rem; color: var(--muted); line-height: 1.55;
+.card-expand {
   margin-top: auto;
+  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--blue); font-weight: 500;
+  display: inline-flex; align-items: center; gap: 0.4rem;
 }
+.card-expand::after { content: '→'; transition: transform 0.22s; }
+.card:hover .card-expand { color: var(--blue2); }
+.card:hover .card-expand::after { transform: translateX(4px); }
 
 /* ── KPI CARDS (operating model) ── */
 .kpi-grid {
@@ -241,6 +241,7 @@ h2 {
   background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
   padding: 1.5rem 1.4rem; cursor: pointer;
   transition: border-color 0.22s, background 0.22s, transform 0.22s;
+  display: flex; flex-direction: column; min-height: 168px;
 }
 .phase-card:hover { border-color: var(--borderH); background: var(--surface); transform: translateY(-3px); }
 .phase-num { font-family:'Space Grotesk',sans-serif; font-size: 2.4rem; font-weight: 700; color: var(--blue); opacity: 0.4; line-height: 1; margin-bottom: 0.5rem; }
@@ -312,12 +313,12 @@ h2 {
     <h2>Outbound works when the system works.</h2>
     <p class="tagline">Six ideas that decide whether the pipeline moves. Click any to go deeper.</p>
     <div class="card-grid c3">
-      <div class="card" data-m="m-fail"><div class="card-head"><span class="card-title">Why Most Outbound Fails</span><span class="card-plus">+</span></div><p class="card-teaser">Bad data and product-first messaging break the funnel before a word is said.</p></div>
-      <div class="card" data-m="m-seq"><div class="card-head"><span class="card-title">The Sequence</span><span class="card-plus">+</span></div><p class="card-teaser">15 touches, 25 days, every channel with a purpose.</p></div>
-      <div class="card" data-m="m-chan"><div class="card-head"><span class="card-title">Channel Philosophy</span><span class="card-plus">+</span></div><p class="card-teaser">How I run LinkedIn, email, cold call, and voicemail differently.</p></div>
-      <div class="card" data-m="m-signal"><div class="card-head"><span class="card-title">Signal-Based Targeting</span><span class="card-plus">+</span></div><p class="card-teaser">Not all signals carry equal weight. Score them with RevOps and Marketing.</p></div>
-      <div class="card" data-m="m-abx"><div class="card-head"><span class="card-title">Personalized Outreach</span><span class="card-plus">+</span></div><p class="card-teaser">Treat a specific person like a specific person. The research is the work.</p></div>
-      <div class="card" data-m="m-data"><div class="card-head"><span class="card-title">Data Hygiene</span><span class="card-plus">+</span></div><p class="card-teaser">Clean data is a competitive advantage, not a maintenance task.</p></div>
+      <div class="card" data-m="m-fail"><span class="card-title">Why Most Outbound Fails</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-seq"><span class="card-title">The Sequence</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-chan"><span class="card-title">Channel Philosophy</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-signal"><span class="card-title">Signal-Based Targeting</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-abx"><span class="card-title">Personalized Outreach</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-data"><span class="card-title">Data Hygiene</span><span class="card-expand">Expand</span></div>
     </div>
   </div>
 </div>
@@ -330,10 +331,10 @@ h2 {
     <h2>AI should be a value add for SDRs.</h2>
     <p class="tagline">It removes the work that keeps reps from making more dials and having great conversations.</p>
     <div class="card-grid c2">
-      <div class="card" data-m="m-enrich"><div class="card-head"><span class="card-title">Enrichment Tools</span><span class="card-plus">+</span></div><p class="card-teaser">Reps work the list. They don't build it.</p></div>
-      <div class="card" data-m="m-dial"><div class="card-head"><span class="card-title">Auto Dialers</span><span class="card-plus">+</span></div><p class="card-teaser">More conversations per session, and coaching in the moment.</p></div>
-      <div class="card" data-m="m-stack"><div class="card-head"><span class="card-title">The Full Stack</span><span class="card-plus">+</span></div><p class="card-teaser">The tools only matter when they connect.</p></div>
-      <div class="card" data-m="m-aican"><div class="card-head"><span class="card-title">What AI Cannot Do</span><span class="card-plus">+</span></div><p class="card-teaser">It can't be curious. It can't build trust. That's still the rep.</p></div>
+      <div class="card" data-m="m-enrich"><span class="card-title">Enrichment Tools</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-dial"><span class="card-title">Auto Dialers</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-stack"><span class="card-title">The Full Stack</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-aican"><span class="card-title">What AI Cannot Do</span><span class="card-expand">Expand</span></div>
     </div>
   </div>
 </div>
@@ -346,12 +347,12 @@ h2 {
     <h2>Skills can be taught. Traits cannot.</h2>
     <p class="tagline">Who I hire, why, and what happens after they're in the seat.</p>
     <div class="card-grid c3">
-      <div class="card" data-m="m-four"><div class="card-head"><span class="card-title">Four Non-Negotiables</span><span class="card-plus">+</span></div><p class="card-teaser">Drive, Resilience, Curiosity, Charisma. The rest I can teach.</p></div>
-      <div class="card" data-m="m-profiles"><div class="card-head"><span class="card-title">Three Profiles</span><span class="card-plus">+</span></div><p class="card-teaser">Rising Performer, Proven Closer, Career Changer.</p></div>
-      <div class="card" data-m="m-interview"><div class="card-head"><span class="card-title">Interviewing for Traits</span><span class="card-plus">+</span></div><p class="card-teaser">I test coachability live, in the room.</p></div>
-      <div class="card" data-m="m-onboard"><div class="card-head"><span class="card-title">Onboarding</span><span class="card-plus">+</span></div><p class="card-teaser">Five tracks. Nobody goes live until they pass.</p></div>
-      <div class="card" data-m="m-promo"><div class="card-head"><span class="card-title">Promotion Paths</span><span class="card-plus">+</span></div><p class="card-teaser">A record of promoting people up and out, everywhere I've led.</p></div>
-      <div class="card" data-m="m-culture"><div class="card-head"><span class="card-title">Culture</span><span class="card-plus">+</span></div><p class="card-teaser">I want culture add, not culture fit.</p></div>
+      <div class="card" data-m="m-four"><span class="card-title">Four Non-Negotiables</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-profiles"><span class="card-title">Three Profiles</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-interview"><span class="card-title">Interviewing for Traits</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-onboard"><span class="card-title">Onboarding</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-promo"><span class="card-title">Promotion Paths</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-culture"><span class="card-title">Culture</span><span class="card-expand">Expand</span></div>
     </div>
   </div>
 </div>
@@ -364,10 +365,10 @@ h2 {
     <h2>I coach from inside the work.</h2>
     <p class="tagline">From the phones and the call blocks, not from a dashboard.</p>
     <div class="card-grid c2">
-      <div class="card" data-m="m-cphil"><div class="card-head"><span class="card-title">The Philosophy</span><span class="card-plus">+</span></div><p class="card-teaser">On the phones, in call blocks, not behind a dashboard.</p></div>
-      <div class="card" data-m="m-oneone"><div class="card-head"><span class="card-title">The 1:1</span><span class="card-plus">+</span></div><p class="card-teaser">The rep owns the agenda. My job is to clear blockers.</p></div>
-      <div class="card" data-m="m-struggle"><div class="card-head"><span class="card-title">The Struggling Rep</span><span class="card-plus">+</span></div><p class="card-teaser">Start at the top of the funnel. Build a plan. No surprises.</p></div>
-      <div class="card" data-m="m-callcoach"><div class="card-head"><span class="card-title">Call Coaching</span><span class="card-plus">+</span></div><p class="card-teaser">Recorded calls for patterns. Live calls for speed.</p></div>
+      <div class="card" data-m="m-cphil"><span class="card-title">The Philosophy</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-oneone"><span class="card-title">The 1:1</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-struggle"><span class="card-title">The Struggling Rep</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-callcoach"><span class="card-title">Call Coaching</span><span class="card-expand">Expand</span></div>
     </div>
   </div>
 </div>
@@ -379,16 +380,13 @@ h2 {
     <p class="sec-label">05 / The Operating Model</p>
     <h2>Leadership should never have to ask.</h2>
     <p class="tagline">The three metrics I watch most closely, and the rhythm that surfaces everything else.</p>
-    <div class="kpi-grid">
-      <div class="kpi-card"><p class="kpi-name">Connect to Meeting</p><p class="kpi-desc">The clearest gap in most funnels and the most coachable metric on the board. When it moves, everything downstream moves.</p></div>
-      <div class="kpi-card"><p class="kpi-name">No-Show Rate</p><p class="kpi-desc">A qualification problem dressed up as a scheduling problem. Tells me whether we're booking meetings people want to attend.</p></div>
-      <div class="kpi-card"><p class="kpi-name">SAO Acceptance</p><p class="kpi-desc">AE-validated and tied to pipeline quality. The metric that connects SDR activity to revenue leadership can trust.</p></div>
-    </div>
-    <div class="card-grid c2">
-      <div class="card" data-m="m-cadence"><div class="card-head"><span class="card-title">The Cadence</span><span class="card-plus">+</span></div><p class="card-teaser">What each weekly and bi-weekly meeting is actually for.</p></div>
-      <div class="card" data-m="m-visibility"><div class="card-head"><span class="card-title">Pipeline Visibility</span><span class="card-plus">+</span></div><p class="card-teaser">A short weekly update so leadership never has to ask.</p></div>
-      <div class="card" data-m="m-revops"><div class="card-head"><span class="card-title">RevOps Partnership</span><span class="card-plus">+</span></div><p class="card-teaser">A force multiplier when it works both ways.</p></div>
-      <div class="card" data-m="m-mktg"><div class="card-head"><span class="card-title">Marketing Alignment</span><span class="card-plus">+</span></div><p class="card-teaser">Same calendar, coordinated motion.</p></div>
+    <div class="card-grid c3">
+      <div class="card" data-m="m-kpi-ctm"><span class="card-title">Connect to Meeting</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-kpi-noshow"><span class="card-title">No-Show Rate</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-kpi-sao"><span class="card-title">SAO Acceptance</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-cadence"><span class="card-title">The Cadence</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-visibility"><span class="card-title">Pipeline Visibility</span><span class="card-expand">Expand</span></div>
+      <div class="card" data-m="m-xfn"><span class="card-title">Cross-Functional Partnership</span><span class="card-expand">Expand</span></div>
     </div>
   </div>
 </div>
@@ -401,9 +399,9 @@ h2 {
     <h2>I would come in with questions, not decisions.</h2>
     <p class="tagline">Click a phase to see the plan.</p>
     <div class="phase-grid">
-      <div class="phase-card" data-m="m-diagnose"><div class="phase-num">30</div><p class="phase-name">Diagnose</p><p class="phase-days">Days 1 – 30</p><p class="phase-teaser">Interview, shadow, assess. Find the single biggest bottleneck.</p></div>
-      <div class="phase-card" data-m="m-repair"><div class="phase-num">60</div><p class="phase-name">Repair</p><p class="phase-days">Days 31 – 60</p><p class="phase-teaser">Fix the bottleneck. Deploy what works. Early results visible.</p></div>
-      <div class="phase-card" data-m="m-build"><div class="phase-num">90</div><p class="phase-name">Build</p><p class="phase-days">Days 61 – 90</p><p class="phase-teaser">Scale it. Development, hiring, promotion paths, OKRs.</p></div>
+      <div class="phase-card" data-m="m-diagnose"><div class="phase-num">30</div><p class="phase-name">Diagnose</p><p class="phase-days">Days 1 – 30</p><span class="card-expand">Expand</span></div>
+      <div class="phase-card" data-m="m-repair"><div class="phase-num">60</div><p class="phase-name">Repair</p><p class="phase-days">Days 31 – 60</p><span class="card-expand">Expand</span></div>
+      <div class="phase-card" data-m="m-build"><div class="phase-num">90</div><p class="phase-name">Build</p><p class="phase-days">Days 61 – 90</p><span class="card-expand">Expand</span></div>
     </div>
   </div>
 </div>
@@ -495,9 +493,17 @@ h2 {
 
 <template id="m-callcoach"><b>Coaching</b>|Call Coaching|<p>Call recording and analytics (Gong, Chorus) show you what happened. Auto dialers let you coach while it is happening. Both matter and serve different purposes.</p><p>Recorded calls are where I do pattern work. I listen for how reps handle the moment after an objection and whether their delivery feels natural or rehearsed.</p><p>Being on the phones with the team during call blocks is where I see reps move fastest. The best cold call open is the one a rep can deliver with genuine confidence. My job is helping each rep find theirs.</p></template>
 
+<template id="m-kpi-ctm"><b>The Operating Model · KPI</b>|Connect to Meeting|<p>The clearest gap in most outbound funnels and the most coachable metric on the board. When this number moves, everything downstream moves.</p><p>It tells me whether reps are turning conversations into booked meetings, which is usually where the biggest and fastest improvement lives.</p></template>
+
+<template id="m-kpi-noshow"><b>The Operating Model · KPI</b>|No-Show Rate|<p>A high no-show rate is a qualification problem dressed up as a scheduling problem. It tells me whether we are booking meetings people genuinely want to attend, not meetings people agreed to just to get off the phone.</p><p>When it climbs, the fix is almost always in messaging and qualification, not in more reminders.</p></template>
+
+<template id="m-kpi-sao"><b>The Operating Model · KPI</b>|SAO Acceptance|<p>AE-validated and tied directly to pipeline quality. This is the metric that connects SDR activity to revenue in a way leadership can trust, because an AE has accepted the opportunity as real.</p><p>Dials and meetings are inputs. SAO is the output that proves the motion is working.</p></template>
+
 <template id="m-cadence"><b>The Operating Model</b>|The Cadence|<span class="lbl">Weekly</span><p>1:1s with each BDR (rep owns the agenda). Team meeting (only what cannot be answered by email). BDR Manager check-in. Pipeline review with leadership.</p><span class="lbl">Bi-Weekly</span><p>BDR 1:1s for coaching, development, and career progression. Office hours: open drop-in, no agenda, just come.</p><p>Structured but never bureaucratic. The goal of every meeting is to be useful.</p></template>
 
 <template id="m-visibility"><b>The Operating Model</b>|Pipeline Visibility|<p>Every week I send a short update to leadership. The numbers. What is improving. Where I see risk. What I am doing about it. That visibility keeps everyone aligned and prevents surprises later.</p><p>Connect to Meeting and No-Show Rate are the weekly signals that let me spot problems early. SAO is more of a lagging indicator given longer enterprise sales cycles.</p></template>
+
+<template id="m-xfn"><b>The Operating Model</b>|Cross-Functional Partnership|<p>The SDR org does not exist in isolation. How well it works is largely determined by how well a few key relationships work, and I treat all of them as partnerships, not dependencies.</p><span class="lbl">RevOps</span><p>A force multiplier when the relationship works both ways. My job is to make their lives easier: clean data, processes followed consistently, issues surfaced early. When I bring a concern I bring context and a point of view, not just a complaint.</p><span class="lbl">Marketing</span><p>My team and marketing work from the same calendar. If there is a webinar, event, or content push coming, the SDR team already knows about it and is using it in outreach before it launches. The best campaigns wrap SDR activity around marketing moments rather than running parallel to them.</p><span class="lbl">How I Communicate</span><p>Direct and transparent. I would rather surface a question or a problem early and adjust quickly than let something drift.</p></template>
 
 <template id="m-revops"><b>The Operating Model</b>|RevOps Partnership|<p>RevOps is a force multiplier when the relationship works both ways. My job is to make their lives easier. Clean data. Processes followed consistently. Issues surfaced early. When I bring a concern I bring context and a point of view, not just a complaint.</p></template>
 
