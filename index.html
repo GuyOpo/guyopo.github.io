@@ -64,8 +64,24 @@ body {
   position: fixed; top: 1.8rem; left: 3vw;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
-  color: var(--blue); z-index: 200;
+  color: var(--blue); z-index: 200; cursor: pointer;
 }
+.topnav {
+  position: fixed; top: 1.55rem; right: 3vw; z-index: 200;
+  display: flex; gap: 1.35rem; align-items: center;
+}
+.tn {
+  background: none; border: none; cursor: pointer; padding: 0;
+  font-family: 'Inter', sans-serif; font-size: 0.66rem;
+  letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted);
+  display: inline-flex; align-items: baseline; gap: 0.32rem;
+  transition: color 0.2s;
+}
+.tn b { font-weight: 600; font-size: 0.58rem; color: var(--dim); transition: color 0.2s; }
+.tn-sep { width: 1px; height: 13px; background: var(--borderH); display: inline-block; }
+.tn:hover, .tn.active { color: var(--white); }
+.tn:hover b, .tn.active b { color: var(--blue); }
+@media (max-width: 960px) { .topnav { display: none; } }
 .nav-hint {
   position: fixed; top: 1.9rem; right: 3vw;
   font-size: 0.72rem; letter-spacing: 0.03em;
@@ -261,14 +277,15 @@ h2 {
 .phase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .phase-card {
   background: var(--bg2); border: 1px solid var(--border); border-radius: 10px;
-  padding: 1.5rem 1.4rem; cursor: pointer;
+  padding: 1.6rem 1.5rem; cursor: pointer;
   transition: border-color 0.22s, background 0.22s, transform 0.22s;
   display: flex; flex-direction: column; min-height: 168px;
 }
 .phase-card:hover { border-color: var(--borderH); background: var(--surface); transform: translateY(-3px); }
-.phase-num { font-family:'Space Grotesk',sans-serif; font-size: 2.4rem; font-weight: 700; color: var(--blue); opacity: 0.4; line-height: 1; margin-bottom: 0.5rem; }
-.phase-name { font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 0.4rem; }
-.phase-days { font-size: 0.74rem; color: var(--dim); margin-bottom: 0.9rem; }
+.phase-head { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 0.5rem; }
+.phase-num { font-family:'Space Grotesk',sans-serif; font-size: clamp(2.6rem, 4.2vw, 3.6rem); font-weight: 700; color: var(--blue); opacity: 0.55; line-height: 1; }
+.phase-name { font-family:'Space Grotesk',sans-serif; font-size: clamp(1.8rem, 2.8vw, 2.3rem); font-weight: 600; color: var(--white); line-height: 1; letter-spacing: -0.02em; }
+.phase-days { font-size: 0.74rem; color: var(--dim); letter-spacing: 0.05em; }
 .phase-teaser { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
 
 /* ── JOURNEY ── */
@@ -318,9 +335,10 @@ h2 {
   .jlogo-wrap { height: 70px; padding: 9px 14px; margin-bottom: 0.6rem; }
   .jlogo-wrap img { max-height: 36px; }
   .jlogo-wrap img[alt="Chronosphere"] { max-height: 54px; }
-  .phase-card { min-height: 0; padding: 0.9rem 1.1rem; }
-  .phase-num { font-size: 1.7rem; margin-bottom: 0.25rem; }
-  .phase-name { margin-bottom: 0.25rem; }
+  .phase-card { min-height: 0; padding: 1rem 1.1rem; }
+  .phase-num { font-size: 2.1rem; }
+  .phase-name { font-size: 1.5rem; }
+  .phase-head { margin-bottom: 0.35rem; }
   .phase-days { margin-bottom: 0.6rem; }
   .hero-name { font-size: clamp(2.1rem, 9vw, 2.8rem); }
   .hero-sub { font-size: 0.92rem; margin-bottom: 1.5rem; }
@@ -339,7 +357,18 @@ h2 {
 </head>
 <body>
 
-<div class="site-mark">GO</div>
+<div class="site-mark" onclick="goTo(0)">GO</div>
+<nav class="topnav" id="topnav">
+  <button class="tn" data-go="1"><b>01</b> PG</button>
+  <button class="tn" data-go="2"><b>02</b> AI Stack</button>
+  <button class="tn" data-go="3"><b>03</b> Talent</button>
+  <button class="tn" data-go="4"><b>04</b> Coaching</button>
+  <button class="tn" data-go="5"><b>05</b> Operating</button>
+  <button class="tn" data-go="6"><b>06</b> 90 Days</button>
+  <button class="tn" data-go="7"><b>07</b> Journey</button>
+  <span class="tn-sep"></span>
+  <button class="tn" data-go="8">Contact</button>
+</nav>
 
 <div class="slider-wrap"><div class="slider" id="slider">
 
@@ -445,12 +474,12 @@ h2 {
   <div class="slide-ghost">06</div>
   <div class="slide-content">
     <p class="sec-label">06 / The First 90 Days</p>
-    <h2>I would come in with questions, not decisions.</h2>
-    <p class="tagline">Click a phase to see the plan.</p>
+    <h2>Learn the business before making changes.</h2>
+    <p class="tagline"></p>
     <div class="phase-grid">
-      <div class="phase-card" data-m="m-diagnose"><div class="phase-num">30</div><p class="phase-name">Diagnose</p><p class="phase-days">Days 1 – 30</p><span class="card-expand">Expand</span></div>
-      <div class="phase-card" data-m="m-repair"><div class="phase-num">60</div><p class="phase-name">Repair</p><p class="phase-days">Days 31 – 60</p><span class="card-expand">Expand</span></div>
-      <div class="phase-card" data-m="m-build"><div class="phase-num">90</div><p class="phase-name">Build</p><p class="phase-days">Days 61 – 90</p><span class="card-expand">Expand</span></div>
+      <div class="phase-card" data-m="m-diagnose"><div class="phase-head"><span class="phase-num">30</span><span class="phase-name">Diagnose</span></div><p class="phase-days">Days 1 – 30</p><span class="card-expand">Expand</span></div>
+      <div class="phase-card" data-m="m-repair"><div class="phase-head"><span class="phase-num">60</span><span class="phase-name">Repair</span></div><p class="phase-days">Days 31 – 60</p><span class="card-expand">Expand</span></div>
+      <div class="phase-card" data-m="m-build"><div class="phase-head"><span class="phase-num">90</span><span class="phase-name">Build</span></div><p class="phase-days">Days 61 – 90</p><span class="card-expand">Expand</span></div>
     </div>
   </div>
 </div>
@@ -594,6 +623,7 @@ function goTo(n) {
   document.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active', i===cur));
   document.getElementById('prevBtn').disabled = cur===0;
   document.getElementById('nextBtn').disabled = cur===total-1;
+  document.querySelectorAll('.tn').forEach(t=>t.classList.toggle('active', +t.getAttribute('data-go')===cur));
   setTimeout(()=>{
     const c = slides[cur].querySelector('.slide-content');
     if(c){ c.classList.remove('visible'); void c.offsetWidth; c.classList.add('visible'); }
@@ -618,6 +648,8 @@ document.getElementById('modalClose').onclick=closeModal;
 mBack.addEventListener('click', e=>{ if(e.target===mBack) closeModal(); });
 
 // Keyboard
+document.querySelectorAll('.tn').forEach(t=>t.addEventListener('click', ()=>goTo(+t.getAttribute('data-go'))));
+
 document.addEventListener('keydown', e=>{
   if(mBack.classList.contains('open')){ if(e.key==='Escape') closeModal(); return; }
   if(e.key==='ArrowRight') goTo(cur+1);
