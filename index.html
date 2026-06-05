@@ -322,16 +322,16 @@ h2 {
   .hero-orb, .slide-ghost { display: none; }
   .h-d { display: none; } .h-m { display: inline; }
   .card-grid, .card-grid.c2, .card-grid.c3, .card-grid.c4, .kpi-grid, .phase-grid { grid-template-columns: repeat(2, 1fr); max-width: none; gap: 8px; }
-  /* compact so each section fits on one screen */
-  .slide { padding: 3.6rem 6vw 4.6rem; justify-content: safe center; }
+  .card-grid.c3 > .card:last-child:nth-child(odd) { grid-column: 1 / span 2; justify-self: center; width: calc(50% - 4px); }
+  .slide { padding: 3rem 6vw 4rem; justify-content: safe center; }
   .slide-content { width: 100%; }
-  .sec-label { margin-bottom: 0.55rem; }
-  h2 { font-size: clamp(1.5rem, 6.2vw, 1.95rem); margin-bottom: 0.5rem; }
-  .tagline { font-size: 0.84rem; margin-bottom: 1rem; }
-  .card { min-height: 0; padding: 0.8rem 1.1rem; }
-  .card-title { font-size: 1.1rem; }
+  .sec-label { margin-bottom: 0.4rem; }
+  h2 { font-size: clamp(1.5rem, 6.2vw, 1.95rem); margin-bottom: 0.4rem; }
+  .tagline { font-size: 0.84rem; margin-bottom: 0.8rem; }
+  .card { min-height: 0; padding: 0.75rem 0.9rem; aspect-ratio: 1; }
+  .card-title { font-size: 0.95rem; }
   .card-expand { font-size: 0.56rem; }
-  .jcard { min-height: 0; }
+  .jcard { min-height: 0; aspect-ratio: auto; }
   .jlogo-wrap { height: 70px; padding: 9px 14px; margin-bottom: 0.6rem; }
   .jlogo-wrap img { max-height: 36px; }
   .jlogo-wrap img[alt="Chronosphere"] { max-height: 54px; }
@@ -353,21 +353,30 @@ h2 {
   .nav-dot { width: 4px; height: 4px; }
   .nav-dots { gap: 0.4rem; }
 }
+@media (orientation: landscape) and (max-height: 500px) {
+  .slide { padding: 1.8rem 6vw 2.8rem; }
+  .card-grid, .card-grid.c2, .card-grid.c3, .card-grid.c4 { grid-template-columns: repeat(3, 1fr); }
+  .card { aspect-ratio: auto; padding: 0.6rem 0.8rem; }
+  .card-title { font-size: 0.85rem; }
+  h2 { font-size: clamp(1.3rem, 4vw, 1.7rem); margin-bottom: 0.3rem; }
+  .sec-label { margin-bottom: 0.25rem; }
+  .tagline { margin-bottom: 0.5rem; font-size: 0.78rem; }
+}
 </style>
 </head>
 <body>
 
 <div class="site-mark" onclick="goTo(0)">GO</div>
 <nav class="topnav" id="topnav">
-  <button class="tn" data-go="1"><b>00</b> Diagnosis</button>
-  <button class="tn" data-go="2"><b>01</b> Approach</button>
-  <button class="tn" data-go="3"><b>02</b> Execution</button>
-  <button class="tn" data-go="4"><b>03</b> AI Stack</button>
-  <button class="tn" data-go="5"><b>04</b> Talent</button>
-  <button class="tn" data-go="6"><b>05</b> Coaching</button>
-  <button class="tn" data-go="7"><b>06</b> Operating</button>
-  <button class="tn" data-go="8"><b>07</b> 90 Days</button>
-  <button class="tn" data-go="9"><b>08</b> Journey</button>
+  <button class="tn" data-go="1"><b>01</b> Diagnosis</button>
+  <button class="tn" data-go="2"><b>02</b> Approach</button>
+  <button class="tn" data-go="3"><b>03</b> Execution</button>
+  <button class="tn" data-go="4"><b>04</b> AI Stack</button>
+  <button class="tn" data-go="5"><b>05</b> Talent</button>
+  <button class="tn" data-go="6"><b>06</b> Coaching</button>
+  <button class="tn" data-go="7"><b>07</b> Operating</button>
+  <button class="tn" data-go="8"><b>08</b> 90 Days</button>
+  <button class="tn" data-go="9"><b>09</b> Journey</button>
   <span class="tn-sep"></span>
   <button class="tn" data-go="10">Contact</button>
 </nav>
@@ -387,11 +396,11 @@ h2 {
 
 <!-- 00 DIAGNOSIS -->
 <div class="slide" id="s00">
-  <div class="slide-ghost">00</div>
+  <div class="slide-ghost">01</div>
   <div class="slide-content">
-    <p class="sec-label">00 / The Diagnosis</p>
+    <p class="sec-label">01 / The Diagnosis</p>
     <h2>The most common reasons outbound underperforms.</h2>
-    <p class="tagline">Click any to go deeper, then see where the fix lives.</p>
+    <p class="tagline">The patterns behind most pipeline problems.</p>
     <div class="card-grid c3">
       <div class="card" data-m="m-diag1"><span class="card-title">Volume is up. Results aren't.</span><span class="card-expand">Expand</span></div>
       <div class="card" data-m="m-diag2"><span class="card-title">Outbound isn't dead. It's being done wrong.</span><span class="card-expand">Expand</span></div>
@@ -402,9 +411,9 @@ h2 {
 
 <!-- 01 PIPELINE: THE APPROACH -->
 <div class="slide" id="s01">
-  <div class="slide-ghost">01</div>
+  <div class="slide-ghost">02</div>
   <div class="slide-content">
-    <p class="sec-label">01 / Pipeline Generation</p>
+    <p class="sec-label">02 / Pipeline Generation</p>
     <h2>Good outbound starts before the first touch.</h2>
     <p class="tagline">Strategy, channels, and why inbound deserves to be treated differently.</p>
     <div class="card-grid c2">
@@ -418,9 +427,9 @@ h2 {
 
 <!-- 02 PIPELINE: THE EXECUTION -->
 <div class="slide" id="s02">
-  <div class="slide-ghost">02</div>
+  <div class="slide-ghost">03</div>
   <div class="slide-content">
-    <p class="sec-label">02 / Pipeline Generation</p>
+    <p class="sec-label">03 / Pipeline Generation</p>
     <h2>The motion in practice.</h2>
     <p class="tagline">How each touch gets made, who it reaches, and what makes it land.</p>
     <div class="card-grid c2">
@@ -434,9 +443,9 @@ h2 {
 
 <!-- 03 AI -->
 <div class="slide" id="s03">
-  <div class="slide-ghost">03</div>
+  <div class="slide-ghost">04</div>
   <div class="slide-content">
-    <p class="sec-label">03 / The AI-Native Stack</p>
+    <p class="sec-label">04 / The AI-Native Stack</p>
     <h2>AI should be a value add for SDRs.</h2>
     <p class="tagline">It removes the work that keeps reps from making more dials and having great conversations.</p>
     <div class="card-grid c2">
@@ -450,9 +459,9 @@ h2 {
 
 <!-- 04 TALENT -->
 <div class="slide" id="s04">
-  <div class="slide-ghost">04</div>
+  <div class="slide-ghost">05</div>
   <div class="slide-content">
-    <p class="sec-label">04 / Talent</p>
+    <p class="sec-label">05 / Talent</p>
     <h2>Skills can be taught. Traits cannot.</h2>
     <p class="tagline">Who I hire, why, and what happens after they're in the seat.</p>
     <div class="card-grid c3">
@@ -468,9 +477,9 @@ h2 {
 
 <!-- 05 COACHING -->
 <div class="slide" id="s05">
-  <div class="slide-ghost">05</div>
+  <div class="slide-ghost">06</div>
   <div class="slide-content">
-    <p class="sec-label">05 / Coaching</p>
+    <p class="sec-label">06 / Coaching</p>
     <h2>I coach from inside the work.</h2>
     <p class="tagline">From the phones and the call blocks, not from a dashboard.</p>
     <div class="card-grid c2">
@@ -484,9 +493,9 @@ h2 {
 
 <!-- 06 OPERATING MODEL -->
 <div class="slide" id="s06">
-  <div class="slide-ghost">06</div>
+  <div class="slide-ghost">07</div>
   <div class="slide-content">
-    <p class="sec-label">06 / The Operating Model</p>
+    <p class="sec-label">07 / The Operating Model</p>
     <h2>Leadership should never have to ask.</h2>
     <p class="tagline">The three metrics I watch most closely, and the rhythm that surfaces everything else.</p>
     <div class="card-grid c4">
@@ -504,9 +513,9 @@ h2 {
 
 <!-- 07 90 DAYS -->
 <div class="slide" id="s07">
-  <div class="slide-ghost">07</div>
+  <div class="slide-ghost">08</div>
   <div class="slide-content">
-    <p class="sec-label">07 / The First 90 Days</p>
+    <p class="sec-label">08 / The First 90 Days</p>
     <h2>Learn the business before making changes.</h2>
     <p class="tagline"></p>
     <div class="phase-grid">
@@ -519,9 +528,9 @@ h2 {
 
 <!-- 08 JOURNEY -->
 <div class="slide" id="s08">
-  <div class="slide-ghost">08</div>
+  <div class="slide-ghost">09</div>
   <div class="slide-content">
-    <p class="sec-label">08 / The Journey</p>
+    <p class="sec-label">09 / The Journey</p>
     <h2>Every role was a build.</h2>
     <p class="tagline">10+ years of SDR and BDR leadership. Never missed an annual pipeline target.</p>
     <div class="card-grid c4">
