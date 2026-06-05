@@ -115,6 +115,7 @@ h2 {
   font-size: 0.72rem; letter-spacing: 0.03em; color: var(--dim);
   margin-top: 2.2rem;
 }
+.h-m { display: none; }
 .hero-cta {
   display: inline-flex; align-items: center; gap: 0.5rem;
   font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
@@ -301,12 +302,38 @@ h2 {
 
 @media (max-width: 760px) {
   .nav-hint { display: none; }
-  .hero-orb { display: none; }
-  .kpi-grid, .phase-grid { grid-template-columns: 1fr; }
-  .card-grid, .card-grid.c2, .card-grid.c3, .card-grid.c4 { grid-template-columns: 1fr; max-width: none; }
-  .j-stop { grid-template-columns: 76px 1fr; gap: 1rem; }
-  .slide { padding: 5.5rem 6vw 7rem; }
-  .modal { padding: 2rem 1.6rem 2.2rem; }
+  .hero-orb, .slide-ghost { display: none; }
+  .h-d { display: none; } .h-m { display: inline; }
+  .card-grid, .card-grid.c2, .card-grid.c3, .card-grid.c4, .kpi-grid, .phase-grid { grid-template-columns: 1fr; max-width: none; gap: 10px; }
+  /* compact so each section fits on one screen */
+  .slide { padding: 3.6rem 6vw 4.6rem; justify-content: safe center; }
+  .slide-content { width: 100%; }
+  .sec-label { margin-bottom: 0.55rem; }
+  h2 { font-size: clamp(1.5rem, 6.2vw, 1.95rem); margin-bottom: 0.5rem; }
+  .tagline { font-size: 0.84rem; margin-bottom: 1rem; }
+  .card { min-height: 0; padding: 0.8rem 1.1rem; }
+  .card-title { font-size: 1.1rem; }
+  .card-expand { font-size: 0.56rem; }
+  .jcard { min-height: 0; }
+  .jlogo-wrap { height: 70px; padding: 9px 14px; margin-bottom: 0.6rem; }
+  .jlogo-wrap img { max-height: 36px; }
+  .jlogo-wrap img[alt="Chronosphere"] { max-height: 54px; }
+  .phase-card { min-height: 0; padding: 0.9rem 1.1rem; }
+  .phase-num { font-size: 1.7rem; margin-bottom: 0.25rem; }
+  .phase-name { margin-bottom: 0.25rem; }
+  .phase-days { margin-bottom: 0.6rem; }
+  .hero-name { font-size: clamp(2.1rem, 9vw, 2.8rem); }
+  .hero-sub { font-size: 0.92rem; margin-bottom: 1.5rem; }
+  .hero-hint { margin-top: 1.4rem; font-size: 0.7rem; }
+  .avatar { width: 84px; height: 84px; margin-bottom: 1.1rem; }
+  .modal { padding: 1.8rem 1.4rem 2rem; max-height: 86vh; }
+  .modal-title { font-size: 1.4rem; }
+  .modal-body { font-size: 0.86rem; }
+  .bottom-nav { gap: 1.1rem; bottom: 1rem; }
+}
+@media (max-width: 430px) {
+  .nav-dot { width: 4px; height: 4px; }
+  .nav-dots { gap: 0.4rem; }
 }
 </style>
 </head>
@@ -323,7 +350,7 @@ h2 {
     <p class="hero-label">Sales Development Leader</p>
     <h1 class="hero-name">Guy Opochinski<span class="cursor">_</span></h1>
     <p class="hero-sub">I build BDR and SDR organizations from scratch and scale them into pipeline engines.<br><strong>10+ years. Never missed an annual target.</strong></p>
-    <p class="hero-hint">Use ← → arrow keys, scroll, or swipe to navigate</p>
+    <p class="hero-hint"><span class="h-d">Use ← → arrow keys, scroll, or swipe to navigate</span><span class="h-m">Swipe or scroll to navigate</span></p>
   </div>
 </div>
 
@@ -478,7 +505,7 @@ h2 {
 <!-- ═══ MODAL CONTENT TEMPLATES ═══ -->
 <template id="m-fail"><b>Pipeline Generation</b>|Why Most Outbound Fails|<p>Bad data kills connect rate before anyone dials. Messaging that leads with your product instead of their pain kills conversion before they hear a word. Most outbound has both problems at once.</p><p>The fix is not more dials. It is fixing what breaks the dials you are already making.</p></template>
 
-<template id="m-seq"><b>Pipeline Generation</b>|The Sequence — 15 Touches, 25 Days|<p>LinkedIn comes first because warm beats cold. The sequence adapts at touch 2 based on whether the connection was accepted. By touch 10 you have earned the right to break the pattern.</p><table class="seq"><tr><td>Touch 1</td><td>Day 1</td><td>LinkedIn connection invite</td></tr><tr><td>Touch 2</td><td>Day 3</td><td>LinkedIn video (accepted) / InMail (not accepted)</td></tr><tr><td>Touch 3</td><td>Day 4</td><td>Call — follow up on LinkedIn outreach</td></tr><tr><td>Touch 4</td><td>Day 4</td><td>Follow-up email</td></tr><tr><td>Touch 5</td><td>Day 6</td><td>Phone call</td></tr><tr><td>Touch 6</td><td>Day 8</td><td>LinkedIn InMail</td></tr><tr><td>Touch 7</td><td>Day 10</td><td>Phone call</td></tr><tr><td>Touch 8</td><td>Day 12</td><td>Event or webinar invite email</td></tr><tr><td>Touch 9</td><td>Day 13</td><td>LinkedIn profile view</td></tr><tr><td>Touch 10</td><td>Day 15</td><td>Personalized direct mail</td></tr><tr><td>Touch 11</td><td>Day 17</td><td>Customer proof point email + call with voicemail</td></tr><tr><td>Touch 12</td><td>Day 19</td><td>Value add email</td></tr><tr><td>Touch 13</td><td>Day 21</td><td>Call with voicemail</td></tr><tr><td>Touch 14</td><td>Day 23</td><td>Personalized InMail</td></tr><tr><td>Touch 15</td><td>Day 25</td><td>Call with voicemail</td></tr></table><p>The profile view at touch 9 is deliberate. It signals presence without making a request. The physical drop at touch 10 works because by then the prospect has seen your name enough times to recognize it on an envelope.</p></template>
+<template id="m-seq"><b>Pipeline Generation</b>|The Sequence|<p>A structured, multi-channel sequence that runs over several weeks across LinkedIn, phone, and email.</p><p>The principles that make it work: start on LinkedIn to warm the prospect before the first call. Coordinate the channels deliberately instead of blasting all of them at once. Let the cadence adapt to how the prospect actually engages. Use voicemails to point toward something valuable rather than asking for a callback. And once your name is familiar, earn the meeting with a personalized, creative touch.</p><p>I keep the exact step-by-step playbook off a public page, but that is the shape of it.</p></template>
 
 <template id="m-chan"><b>Pipeline Generation</b>|Channel Philosophy|<span class="lbl">LinkedIn</span><p>Start here, not after the cold call. A short personalized video stands out in a feed full of text.</p><span class="lbl">Email</span><p>Subject line: 2-3 words about their pain, not your product. Open with their world. The first CTA is a question that finds out whether the prospect shares the pain you described. You are qualifying interest before requesting time.</p><span class="lbl">Cold Call</span><p>The best opener is the one you can deliver with genuine confidence. One of my BDRs opened every call with "What did I catch you in the middle of?" Completely sincere. She never got hung up on. When other reps tried the same line it fell flat because it was not them. I coach reps to find their open, not memorize mine.</p><span class="lbl">Voicemail</span><p>Getting a callback from a cold voicemail is nearly impossible. So do not ask for one. Use the voicemail as a delivery mechanism instead and point the prospect toward something valuable.</p></template>
 
@@ -516,13 +543,13 @@ h2 {
 
 <template id="m-callcoach"><b>Coaching</b>|Call Coaching|<p>Call recording and analytics (Gong, Chorus) show you what happened. Auto dialers let you coach while it is happening. Both matter and serve different purposes.</p><p>Recorded calls are where I do pattern work. I listen for how reps handle the moment after an objection and whether their delivery feels natural or rehearsed.</p><p>Being on the phones with the team during call blocks is where I see reps move fastest. The best cold call open is the one a rep can deliver with genuine confidence. My job is helping each rep find theirs.</p></template>
 
-<template id="m-quest"><b>The Journey · 2004–2014</b>|Quest Software|<p>Where I learned what enterprise sales actually is. Progressed from BDR to Territory Account Executive, exceeded quota three consecutive years, and was named Sales Rep of the Year ranking first in quota attainment across North America. President's Club every eligible year.</p></template>
+<template id="m-quest"><b>The Journey &middot; 2004&ndash;2014</b>|Quest Software|<p>Where I cut my teeth in enterprise sales. Progressed from Support Renewal Supervisor to BDR, hitting 140% of quota both years, to Territory Account Executive, exceeding quota three years running.</p><p>Named Sales Rep of the Year, ranking first in quota attainment across North America, and earned President's Club every eligible year.</p></template>
 
-<template id="m-alteryx"><b>The Journey · 2014–2016</b>|Alteryx|<p>First BDR leader the company had. Built the team from three to sixteen. 236% of quota in year one. Promoted ten BDRs into sales roles.</p></template>
+<template id="m-alteryx"><b>The Journey &middot; 2014&ndash;2016</b>|Alteryx|<p>The company's first dedicated BDR leader. Built the team from three reps to sixteen through the pre-IPO growth phase, owning the hiring profile, onboarding playbook, and career-development framework.</p><p>Built the outbound frameworks and qualification process for technical buyers across SMB, mid-market, and enterprise. Hit 236% of quota in year one, earned President's Club, and promoted ten BDRs into closing roles.</p></template>
 
-<template id="m-bigpanda"><b>The Journey · 2018–2022</b>|BigPanda|<p>Scaled the global BDR organization across the US and EMEA. Grew from one rep to twelve plus a manager. ARR grew from roughly ten million to over fifty million. Multiple BDRs promoted into AE, Marketing, RevOps, and management.</p></template>
+<template id="m-bigpanda"><b>The Journey &middot; 2018&ndash;2022</b>|BigPanda|<p>Built the global BDR organization from scratch for a complex AIOps and DevOps platform, growing from one rep to twelve plus a manager across the US and EMEA, supporting ARR growth from roughly ten million to over fifty million.</p><p>Stood up the mid-market enterprise sales team alongside it with a clear promotion path into closing, and earned President's Club. Partnered with RevOps on KPIs, dashboards, and forecasting, and with Marketing on ICP, lead routing, and conversion. Developed multiple SDRs into AE, Marketing, and RevOps roles, and promoted a BDR into management.</p></template>
 
-<template id="m-chrono"><b>The Journey · 2023–2025</b>|Chronosphere|<p>Led a global team of twenty US-based BDRs, one EMEA rep, and two managers. Owned the full BDR operating system: segmentation, capacity planning, territories, workflows, and forecasting. Pipeline contribution scaled from fifty million to one hundred sixty million ARR. Acquired by Palo Alto Networks.</p></template>
+<template id="m-chrono"><b>The Journey &middot; 2023&ndash;2025</b>|Chronosphere|<p>Led a global team of twenty US-based BDRs, one EMEA BDR, and two managers, owning the full BDR operating system: segmentation, capacity planning, territories, workflows, and forecasting, scaling pipeline contribution from fifty million to one hundred sixty million ARR.</p><p>Built the AI-driven outbound system on Clay, Nooks, Outreach, ZoomInfo, and LinkedIn Sales Navigator, cutting research time dramatically while improving targeting. Launched a signal-based allbound motion into DevOps, SRE, Platform Engineering, and security leaders, and established onboarding and coaching with MEDDPICC, Command of the Message, and Gong. Carried through to its $3.35B acquisition by Palo Alto Networks.</p></template>
 
 <template id="m-kpi-ctm"><b>The Operating Model · KPI</b>|Connect to Meeting|<p>The clearest gap in most outbound funnels and the most coachable metric on the board. When this number moves, everything downstream moves.</p><p>It tells me whether reps are turning conversations into booked meetings, which is usually where the biggest and fastest improvement lives.</p></template>
 
