@@ -113,6 +113,11 @@ h2 {
   font-size: 0.95rem; color: var(--muted); max-width: 520px;
   line-height: 1.7; margin-bottom: 2.4rem;
 }
+.proof {
+  font-size: 0.95rem; color: var(--white); max-width: 560px;
+  line-height: 1.6; margin: -1.6rem 0 2.4rem;
+}
+.proof b { color: var(--blue2); font-weight: 600; }
 
 /* ── HERO ── */
 #hero { justify-content: center; position: relative; }
@@ -449,8 +454,7 @@ h2 {
     <p class="sec-label">02 / Pipeline Generation</p>
     <h2>Good outbound starts before the first touch.</h2>
     <p class="tagline">Strategy, channels, and why inbound deserves to be treated differently.</p>
-    <div class="card-grid c4">
-      <div class="card" data-m="m-fail"><span class="card-title">Why Most Outbound Fails</span><span class="card-expand">Expand</span></div>
+    <div class="card-grid c3">
       <div class="card" data-m="m-outbound"><span class="card-title">Outbound Strategy</span><span class="card-expand">Expand</span></div>
       <div class="card" data-m="m-inbound"><span class="card-title">Inbound</span><span class="card-expand">Expand</span></div>
       <div class="card" data-m="m-chan"><span class="card-title">Channel Philosophy</span><span class="card-expand">Expand</span></div>
@@ -497,6 +501,7 @@ h2 {
     <p class="sec-label">05 / Talent</p>
     <h2>Skills can be taught. Traits cannot.</h2>
     <p class="tagline">Who I hire, why, and what happens after they're in the seat.</p>
+    <p class="proof"><b>25+</b> people developed into sales, leadership, marketing, and revops roles.</p>
     <div class="card-grid c3">
       <div class="card" data-m="m-four"><span class="card-title">Four Non-Negotiables</span><span class="card-expand">Expand</span></div>
       <div class="card" data-m="m-profiles"><span class="card-title">Three Profiles</span><span class="card-expand">Expand</span></div>
@@ -547,7 +552,7 @@ h2 {
   <div class="slide-content">
     <p class="sec-label">08 / The First 90 Days</p>
     <h2>Learn the business before making changes.</h2>
-    <p class="tagline"></p>
+    <p class="tagline">How I enter a new org without breaking what already works.</p>
     <div class="phase-grid">
       <div class="phase-card" data-m="m-diagnose"><div class="phase-head"><span class="phase-num">30</span><span class="phase-name">Diagnose</span></div><p class="phase-days">Days 1 – 30</p><span class="card-expand">Expand</span></div>
       <div class="phase-card" data-m="m-repair"><div class="phase-head"><span class="phase-num">60</span><span class="phase-name">Repair</span></div><p class="phase-days">Days 31 – 60</p><span class="card-expand">Expand</span></div>
@@ -616,8 +621,6 @@ h2 {
 
 <template id="m-ae-align"><b>The Operating Model</b>|BDR/AE Alignment|<p>BDRs and AEs working in close alignment is one of the highest-leverage things a sales org can do. When the relationship works, SAO acceptance improves, no-shows drop, and both sides hit their number. When it does not, everyone loses.</p><p>Alignment means shared definitions. What is a qualified meeting? What does good look like before an AE accepts a booking? Those answers need to be agreed on, written down, and revisited.</p><p>It also means fast, specific feedback in both directions. AEs owe BDRs honest input on every booking. BDRs who shadow discovery calls develop faster and book better meetings. The handoff is not the end of the BDR's involvement. It is a data point that makes the next one better.</p><p>I build this relationship deliberately. BDRs are partners, not a lead source.</p></template>
 
-<template id="m-fail"><b>Pipeline Generation</b>|Why Most Outbound Fails|<p>Bad data kills connect rate before anyone dials. Messaging that leads with your product instead of their pain kills conversion before they hear a word. Most outbound has both problems at once.</p><p>The fix is not more dials. It is fixing what breaks the dials you are already making.</p></template>
-
 <template id="m-seq"><b>Pipeline Generation</b>|The Sequence|<p>A structured, multi-channel sequence that runs over several weeks across LinkedIn, phone, and email.</p><p>The principles that make it work: start on LinkedIn to warm the prospect before the first call. Coordinate the channels deliberately instead of blasting all of them at once. Let the cadence adapt to how the prospect actually engages. Use voicemails to point toward something valuable rather than asking for a callback. And once your name is familiar, earn the meeting with a personalized, creative touch.</p><p>I keep the exact step-by-step playbook off a public page, but that is the shape of it.</p></template>
 
 <template id="m-chan"><b>Pipeline Generation</b>|Channel Philosophy|<span class="lbl">LinkedIn</span><p>Start here, not after the cold call. A short personalized video stands out in a feed full of text.</p><span class="lbl">Email</span><p>Subject line: 2-3 words about their pain, not your product. Open with their world. The first CTA is a question that finds out whether the prospect shares the pain you described. You are qualifying interest before requesting time.</p><span class="lbl">Cold Call</span><p>The best opener is the one you can deliver with genuine confidence. One of my BDRs opened every call with "What did I catch you in the middle of?" Completely sincere. She never got hung up on. When other reps tried the same line it fell flat because it was not them. I coach reps to find their open, not memorize mine.</p><span class="lbl">Voicemail</span><p>Getting a callback from a cold voicemail is nearly impossible. So do not ask for one. Use the voicemail as a delivery mechanism instead and point the prospect toward something valuable.</p></template>
@@ -644,7 +647,7 @@ h2 {
 
 <template id="m-onboard"><b>Talent</b>|Onboarding|<p>Nobody goes live until they have passed certification at every stage. Five tracks run simultaneously.</p><span class="lbl">Subject Matter Expert</span><p>Product deep-dives, competitive landscape, live and recorded calls, reading everything the company has published.</p><span class="lbl">Core BDR Skills</span><p>Active listening, objection handling, setting great meetings, cold call fundamentals.</p><span class="lbl">Methodology</span><p>MEDDPICC, Command of the Message, and whatever company-specific frameworks are in place.</p><span class="lbl">The Handbook</span><p>Every expectation, process, and metric from day one. No ambiguity about what good looks like.</p><span class="lbl">Mock Calls with Certification</span><p>Practice every scenario before facing it live. The prospect deserves a prepared rep. The rep deserves to know they are ready.</p></template>
 
-<template id="m-promo"><b>Talent</b>|Promotion Paths|<p>At every company I have led, I built a record of promoting people into AE, Marketing, RevOps, team lead, and management roles. At Alteryx, ten BDRs into sales roles. At BigPanda, multiple into AE, RevOps, Marketing, and management. At Chronosphere, multiple promoted to AE.</p><p>Enable all BDRs on AE skills from day one. For high performers on a clear path to promotion, go deeper with advanced enablement and mentorship. When you have a visible next step, you attract and keep the best talent. When someone is fully invested, I am fully invested in where they are going.</p></template>
+<template id="m-promo"><b>Talent</b>|Promotion Paths|<p>Across Alteryx, BigPanda, and Chronosphere, I have developed 25+ people into sales, leadership, marketing, and revops roles. At every company I have led, I built a record of promoting people into AE, Marketing, RevOps, team lead, and management roles. At Alteryx, ten BDRs into sales roles. At BigPanda, multiple into AE, RevOps, Marketing, and management. At Chronosphere, multiple promoted to AE.</p><p>Enable all BDRs on AE skills from day one. For high performers on a clear path to promotion, go deeper with advanced enablement and mentorship. When you have a visible next step, you attract and keep the best talent. When someone is fully invested, I am fully invested in where they are going.</p></template>
 
 <template id="m-culture"><b>Talent</b>|Culture|<p>I do not want culture fit. I want culture add. Someone who brings something the team does not already have.</p><p>BDR Summits quarterly. Book Clubs monthly. Peer Mentorship that develops leadership while accelerating ramp. Spiffs and friendly competition that make the work worth talking about. The goal is a team that lifts each other up, not a group of individuals hitting their own number.</p></template>
 
